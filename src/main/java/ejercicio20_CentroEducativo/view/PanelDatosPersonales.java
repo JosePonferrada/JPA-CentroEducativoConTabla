@@ -65,17 +65,14 @@ public class PanelDatosPersonales extends JPanel {
 	 */
 	public PanelDatosPersonales() {
 		setLayout(new BorderLayout(0, 0));
-		
-		JToolBar toolBar = new JToolBar();
-		add(toolBar, BorderLayout.NORTH);
-		
+				
 		JButton btnPrimero = new JButton("");
 		btnPrimero.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				runnableMostrarPrimerRegistro.run();
 			}
 		});
-		toolBar.add(btnPrimero);
+		
 		
 		JButton btnPrevious = new JButton("");
 		btnPrevious.addActionListener(new ActionListener() {
@@ -84,7 +81,7 @@ public class PanelDatosPersonales extends JPanel {
 			}
 		});
 
-		toolBar.add(btnPrevious);
+		
 		
 		JButton btnNext = new JButton("");
 		btnNext.addActionListener(new ActionListener() {
@@ -93,7 +90,7 @@ public class PanelDatosPersonales extends JPanel {
 			}
 		});
 
-		toolBar.add(btnNext);
+		
 		
 		JButton btnGoLast = new JButton("");
 		btnGoLast.addActionListener(new ActionListener() {
@@ -102,7 +99,7 @@ public class PanelDatosPersonales extends JPanel {
 			}
 		});
 
-		toolBar.add(btnGoLast);
+		
 		
 		JButton btnNew = new JButton("");
 		btnNew.addActionListener(new ActionListener() {
@@ -111,7 +108,7 @@ public class PanelDatosPersonales extends JPanel {
 			}
 		});
 
-		toolBar.add(btnNew);
+		
 		
 		JButton btnSave = new JButton("");
 		btnSave.addActionListener(new ActionListener() {
@@ -120,7 +117,7 @@ public class PanelDatosPersonales extends JPanel {
 			}
 		});
 
-		toolBar.add(btnSave);
+		
 	
 		JButton btnDelete = new JButton("");
 		btnDelete.addActionListener(new ActionListener() {
@@ -129,7 +126,7 @@ public class PanelDatosPersonales extends JPanel {
 			}
 		});
 
-		toolBar.add(btnDelete);
+		
 		
 		panel = new JPanel();
 		add(panel, BorderLayout.CENTER);

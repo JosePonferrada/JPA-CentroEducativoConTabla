@@ -1,5 +1,6 @@
 package ejercicio20_CentroEducativo.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,33 +9,51 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "estudiante")
-public class Estudiante {
-	
+public class Estudiante extends Entidad {
+
 	@Id
+	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	
+	@Column(name = "nombre")
 	private String nombre;
+	
+	@Column(name = "apellido1")
 	private String apellido1;
+	
+	@Column(name = "apellido2")
 	private String apellido2;
+	
+	@Column(name = "idTipologiaSexo")
 	private int idTipologiaSexo;
+	
+	@Column(name = "dni")
 	private String dni;
+	
+	@Column(name = "direccion")
 	private String direccion;
+	
+	@Column(name = "email")
 	private String email;
+	
+	@Column(name = "telefono")
 	private String telefono;
+	
+	@Column(name = "imagen")
+	private byte[] imagen;
+	
+	@Column(name = "colorPreferido")
 	private String colorPreferido;
 	
+	/**
+	 * Constructor.
+	 */
 	public Estudiante() {
 		super();
 	}
-
-	public int getIdTipologiaSexo() {
-		return idTipologiaSexo;
-	}
-
-	public void setIdTipologiaSexo(int idTipologiaSexo) {
-		this.idTipologiaSexo = idTipologiaSexo;
-	}
+	
+	/// GETTERS & SETTERS ///
 
 	public int getId() {
 		return id;
@@ -66,6 +85,14 @@ public class Estudiante {
 
 	public void setApellido2(String apellido2) {
 		this.apellido2 = apellido2;
+	}
+
+	public int getIdTipologiaSexo() {
+		return idTipologiaSexo;
+	}
+
+	public void setIdTipologiaSexo(int idTipologiaSexo) {
+		this.idTipologiaSexo = idTipologiaSexo;
 	}
 
 	public String getDni() {
@@ -100,14 +127,20 @@ public class Estudiante {
 		this.telefono = telefono;
 	}
 
+	public byte[] getImagen() {
+		return imagen;
+	}
+
+	public void setImagen(byte[] imagen) {
+		this.imagen = imagen;
+	}
+
 	public String getColorPreferido() {
 		return colorPreferido;
 	}
 
 	public void setColorPreferido(String colorPreferido) {
 		this.colorPreferido = colorPreferido;
-	}
-
+	}	
 	
-
 }

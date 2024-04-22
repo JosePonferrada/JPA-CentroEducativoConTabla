@@ -1,57 +1,49 @@
 package ejercicio20_CentroEducativo;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-
-import ejercicio20_CentroEducativo.view.PanelEstudiante;
-
-import javax.swing.JSplitPane;
-import javax.swing.JScrollPane;
+import ejercicio20_CentroEducativo.view.PanelTablaEstudiante;
+import utils.Apariencia;
 
 public class MainWindow extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-	private JPanel contentPane;
-
+	private static MainWindow instance = null;
+	
+	static {
+		Apariencia.setAparienciasOrdenadas(Apariencia.aparienciasOrdenadas);
+	}
+	
 	/**
-	 * Launch the application.
+	 * Constructor.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					MainWindow frame = new MainWindow();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+	public MainWindow() {
+		super("Centro Educativo - Datos Estudiantes");
+		
+		this.setBounds(100, 100, 700, 600);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		PanelTablaEstudiante panel = new PanelTablaEstudiante();
+		
+		this.getContentPane().add(panel);
+	}
+	
+	/**
+	 * Singleton.
+	 * @return
+	 */
+	public static MainWindow getInstance() {
+		if (instance == null) {
+			instance = new MainWindow();
+		}
+		return instance;
 	}
 
 	/**
-	 * Create the frame.
+	 * Método Principal.
+	 * @param args
 	 */
-	public MainWindow() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-
-		setContentPane(contentPane);
-		
-		JSplitPane splitPane = new JSplitPane();
-		splitPane.setOrientation(JSplitPane.VERTICAL_SPLIT);
-		contentPane.add(splitPane);
-		
-		JScrollPane scrollPane = new JScrollPane();
-		splitPane.setLeftComponent(scrollPane);
-		
-		PanelEstudiante panelEst = new PanelEstudiante();
-		splitPane.setRightComponent(panelEst);
+	public static void main(String[] args) {
+		getInstance().setVisible(true);
 	}
 
 }

@@ -1,26 +1,60 @@
 package ejercicio20_CentroEducativo.entities;
 
-public class TipologiaSexo {
-	
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "tipologiaSexo")
+public class TipologiaSexo extends Entidad {
+
+	@Id
+	@Column(name = "id")
 	private int id;
+	
+	@Column(name = "descripcion")
 	private String descripcion;
 	
-	public int getId() {
-		return id;
+	/**
+	 * Constructor.
+	 */
+	public TipologiaSexo() {
+		super();
 	}
-	public void setId(int id) {
+
+	/**
+	 * 
+	 * @param id
+	 * @param descripcion
+	 */
+	public TipologiaSexo(int id, String descripcion) {
 		this.id = id;
-	}
-	public String getDescripcion() {
-		return descripcion;
-	}
-	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
 	
 	@Override
 	public String toString() {
 		return descripcion;
+	}
+	
+	
+	/// GETTERS & SETTERS ///
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
 	}
 	
 }

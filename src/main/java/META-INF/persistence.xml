@@ -3,6 +3,8 @@
 	<persistence-unit name="CentroEducativo"
 		transaction-type="RESOURCE_LOCAL">
 		<class>ejercicio20_CentroEducativo.entities.Estudiante</class>
+		<class>ejercicio20_CentroEducativo.entities.TipologiaSexo</class>
+		<class>ejercicio20_CentroEducativo.entities.Entidad</class>
 		
 		<properties>
 			<property name="javax.persistence.jdbc.driver"
