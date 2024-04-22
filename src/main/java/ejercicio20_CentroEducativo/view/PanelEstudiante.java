@@ -49,40 +49,28 @@ public class PanelEstudiante extends JPanel {
 		// Cargamos todos los elementos del jComboBox.
 		loadAllTipologiaSexo();
 	
-		this.panelDatos.setRunnableCreaNuevo(new Runnable() {
+		this.panelDatos.setRunnableNew(new Runnable() {
 			@Override
 			public void run() {
 				nuevo();
 			}
 		});
 		
-		this.panelDatos.setRunnableModifica(new Runnable() {
+		this.panelDatos.setRunnableSave(new Runnable() {
 			@Override
 			public void run() {
 				guardar();
 			}
 		});
 		
-		this.panelDatos.setRunnableElimina(new Runnable() {
+		this.panelDatos.setRunnableDelete(new Runnable() {
 			@Override
 			public void run() {
 				eliminar();
 			}
 		});
 		
-		JButton btnGuardar = new JButton("Guardar");
-		btnGuardar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				guardar();
-			}
-		});
-		GridBagConstraints gbc_btnGuardar = new GridBagConstraints();
-		gbc_btnGuardar.fill = GridBagConstraints.HORIZONTAL;
-		gbc_btnGuardar.gridwidth = 2;
-		gbc_btnGuardar.insets = new Insets(0, 0, 0, 5);
-		gbc_btnGuardar.gridx = 1;
-		gbc_btnGuardar.gridy = 12;
-		panelDatos.getPanel().add(btnGuardar, gbc_btnGuardar);
+	
 		
 		
 	}
@@ -170,8 +158,8 @@ public class PanelEstudiante extends JPanel {
 		o.setImagen(this.panelDatos.imagenEnArrayDeBytes);
 		
 		// Guardamos el color.
-		if (!this.panelDatos.getJtfColorPreferido().trim().equals("")) {
-			o.setColorPreferido(this.panelDatos.getJtfColorPreferido());
+		if (!this.panelDatos.getJtfColor().trim().equals("")) {
+			o.setColorPreferido(this.panelDatos.getJtfColor());
 		} else {
 			o.setColorPreferido(null);
 		}
@@ -213,8 +201,8 @@ public class PanelEstudiante extends JPanel {
 		this.panelDatos.setJtfDireccion("");
 		this.panelDatos.setJtfEmail("");
 		this.panelDatos.setJtfTelefono("");
-		this.panelDatos.setImagenEnArrayDeBytes(null);
-		this.panelDatos.setJtfColorPreferido("");
+		this.panelDatos.setImagen(null);
+		this.panelDatos.setJtfColor("");
 		this.panelDatos.setColor(null);
 	}
 	
@@ -232,7 +220,7 @@ public class PanelEstudiante extends JPanel {
 			this.panelDatos.setJtfDireccion(o.getDireccion());
 			this.panelDatos.setJtfEmail(o.getEmail());
 			this.panelDatos.setJtfTelefono(o.getTelefono());
-			this.panelDatos.setJtfColorPreferido(o.getColorPreferido());
+			this.panelDatos.setJtfColor(o.getColorPreferido());
 			
 			// Si el id del elemento jcombobox en la posición i es igual a
 			// el id del objeto TipologiaSexo, seleccionamos dicho item.
@@ -243,7 +231,7 @@ public class PanelEstudiante extends JPanel {
 			}
 			
 			// Mostramos la posible imagen del registro actual.
-			this.panelDatos.setImagenEnArrayDeBytes(o.getImagen());
+			this.panelDatos.setImagen(o.getImagen());
 			
 			// Mostramos el posible color preferido del registro actual.
 			try {
@@ -252,11 +240,11 @@ public class PanelEstudiante extends JPanel {
 					this.panelDatos.setColor(color);
 				} else {
 					this.panelDatos.setColor(null);
-					this.panelDatos.setJtfColorPreferido("");
+					this.panelDatos.setJtfColor("");
 				}
 			} catch (NumberFormatException e) {
 				this.panelDatos.setColor(null);
-				this.panelDatos.setJtfColorPreferido("");
+				this.panelDatos.setJtfColor("");
 			}
 		}
 	}
